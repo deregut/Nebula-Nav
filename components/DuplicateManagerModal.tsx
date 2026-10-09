@@ -11,7 +11,7 @@ interface Props {
 
 type DuplicateType = 'url' | 'title' | 'domain';
 
-// 智能获取根域名 (忽略子域和协议)
+// 智能獲取根域名 (忽略子域和協議)
 const getRootDomain = (urlStr: string) => {
     try {
         let safeUrl = urlStr.trim();
@@ -103,7 +103,7 @@ export const DuplicateManagerModal: React.FC<Props> = ({ isOpen, onClose, bookma
         <div className="flex justify-between items-center mb-6">
             <h2 className="text-xl font-semibold text-white flex items-center gap-2">
             <svg className="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-            书签整理工具
+            書籤整理工具
             </h2>
             <button onClick={onClose} className="text-gray-400 hover:text-white transition-colors">✕</button>
         </div>
@@ -114,14 +114,14 @@ export const DuplicateManagerModal: React.FC<Props> = ({ isOpen, onClose, bookma
                 onClick={() => setActiveTab('url')}
                 className={`px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-2 ${activeTab === 'url' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
             >
-                <span>重复链接</span>
+                <span>重複鏈接</span>
                 <span className="bg-white/20 px-1.5 rounded text-xs min-w-[1.5rem]">{stats.url.length}</span>
             </button>
             <button 
                 onClick={() => setActiveTab('title')}
                 className={`px-4 py-2 rounded-lg text-sm transition-all flex items-center gap-2 ${activeTab === 'title' ? 'bg-purple-600 text-white shadow' : 'text-gray-400 hover:text-white'}`}
             >
-                <span>重复标题</span>
+                <span>重複標題</span>
                 <span className="bg-white/20 px-1.5 rounded text-xs min-w-[1.5rem]">{stats.title.length}</span>
             </button>
             <button 
@@ -138,7 +138,7 @@ export const DuplicateManagerModal: React.FC<Props> = ({ isOpen, onClose, bookma
                 <div className="flex flex-col items-center justify-center h-full text-gray-500">
                     <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                     <p>
-                        {activeTab === 'domain' ? '没有发现包含多个书签的相同域名。' : '太棒了！没有发现重复项。'}
+                        {activeTab === 'domain' ? '沒有發現包含多個書籤的相同域名。' : '太棒了！沒有發現重複項。'}
                     </p>
                 </div>
             ) : (
@@ -146,9 +146,9 @@ export const DuplicateManagerModal: React.FC<Props> = ({ isOpen, onClose, bookma
                     <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/5">
                         <div className="flex items-center justify-between mb-3">
                              <div className="text-xs text-purple-300 font-mono bg-purple-500/10 px-2 py-1 rounded truncate max-w-[80%]">
-                                {activeTab === 'title' ? `标题: "${group.key}"` : group.key}
+                                {activeTab === 'title' ? `標題: "${group.key}"` : group.key}
                             </div>
-                            <span className="text-xs text-gray-500">{group.items.length} 个项目</span>
+                            <span className="text-xs text-gray-500">{group.items.length} 個項目</span>
                         </div>
                        
                         <div className="space-y-2">
@@ -166,11 +166,11 @@ export const DuplicateManagerModal: React.FC<Props> = ({ isOpen, onClose, bookma
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-3 shrink-0 ml-2">
-                                        <span className="text-xs text-gray-500 bg-white/5 px-2 py-0.5 rounded">{item.category || '未分类'}</span>
+                                        <span className="text-xs text-gray-500 bg-white/5 px-2 py-0.5 rounded">{item.category || '未分類'}</span>
                                         <button 
                                             onClick={() => onDelete(item.id)}
                                             className="p-1.5 text-red-400 hover:text-red-200 hover:bg-red-500/20 rounded-lg transition-colors"
-                                            title="删除此项"
+                                            title="刪除此項"
                                         >
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
                                         </button>

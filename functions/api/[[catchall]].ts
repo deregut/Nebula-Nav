@@ -29,10 +29,10 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const url = new URL(context.request.url);
   const { request, env } = context;
 
-  // 获取环境变量中的标题
-  const defaultTitle = env.SITE_TITLE || '星云导航';
+  // 獲取環境變量中的標題
+  const defaultTitle = env.SITE_TITLE || '星雲導航';
 
-  // 定义默认数据结构，与前端保持一致
+  // 定義默認數據結構，與前端保持一致
   const DEFAULT_DATA = {
     config: {
       siteTitle: defaultTitle,
@@ -64,7 +64,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   if (url.pathname === '/api/data' && request.method === 'GET') {
     try {
       const data = await env.NAV_KV.get('nav_data', { type: 'json' });
-      // 关键修复：如果 KV 为空，返回完整的 DEFAULT_DATA，而不是只返回空数组
+      // 關鍵修復：如果 KV 為空，返回完整的 DEFAULT_DATA，而不是隻返回空數組
       return jsonResponse(data || DEFAULT_DATA);
     } catch (e) {
       return jsonResponse({ error: "KV Error" }, 500);

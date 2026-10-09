@@ -52,15 +52,15 @@ const App: React.FC = () => {
   const { weatherCode, isDay } = useWeather(!!data?.config?.autoWeatherBg, data?.config?.customLocation);
 
   // --- Background Caching Logic ---
-  // 监听天气变化，更新 KV 中的缓存 URL
+  // 監聽天氣變化，更新 KV 中的緩存 URL
   useEffect(() => {
     if (!data?.config?.autoWeatherBg || weatherCode === null) return;
 
     const newUrl = getWeatherBgUrl(weatherCode, isDay);
     
-    // 如果计算出的 URL 有效，且与当前缓存的不一致，则更新配置
+    // 如果計算出的 URL 有效，且與當前緩存的不一致，則更新配置
     if (newUrl && newUrl !== data.config.cachedWeatherBgUrl) {
-        // 使用 setTimeout 避免在渲染周期中直接更新状态
+        // 使用 setTimeout 避免在渲染週期中直接更新狀態
         const timer = setTimeout(() => {
             updateConfig({ cachedWeatherBgUrl: newUrl });
             console.log("Weather background updated & cached:", newUrl);
@@ -154,7 +154,7 @@ const App: React.FC = () => {
   const groupedBookmarks = useMemo(() => {
     const groups: Record<string, Bookmark[]> = {};
     filteredBookmarks.forEach(b => {
-      const cat = b.category || '未分类';
+      const cat = b.category || '未分類';
       if (!groups[cat]) groups[cat] = [];
       groups[cat].push(b);
     });
@@ -176,7 +176,7 @@ const App: React.FC = () => {
 
   const allGroups = useMemo(() => {
     if (!data) return [];
-    const currentCategories = new Set(data.bookmarks.map(b => b.category || '未分类'));
+    const currentCategories = new Set(data.bookmarks.map(b => b.category || '未分類'));
     const savedOrder = data.config.groupOrder || [];
     return Array.from(new Set([...savedOrder, ...currentCategories]));
   }, [data]);
@@ -192,14 +192,14 @@ const App: React.FC = () => {
       return { count, sizeStr, percent };
   }, [data]);
 
-  // 计算全局样式
+  // 計算全局樣式
   const globalStyles = useMemo(() => {
       const cfg = data?.config;
       const scale = cfg?.fontScale || 1;
       const color = cfg?.fontColor || '#e2e8f0';
-      // 阴影强度 0-100
+      // 陰影強度 0-100
       const shadowStrength = cfg?.textShadowStrength !== undefined ? cfg.textShadowStrength : 60;
-      // 动态计算阴影: x y blur opacity
+      // 動態計算陰影: x y blur opacity
       const shadow = `0 ${1 + (shadowStrength/50)}px ${2 + (shadowStrength/20)}px rgba(0,0,0, ${0.3 + (shadowStrength/150)})`;
 
       return {
@@ -228,10 +228,10 @@ const App: React.FC = () => {
   return (
     <DndContext sensors={sensors} collisionDetection={closestCenter} onDragStart={(e) => setActiveId(e.active.id as string)} onDragEnd={handleDragEnd}>
       
-      {/* 背景层 */}
+      {/* 背景層 */}
       <Background config={data?.config} weatherCode={weatherCode} isDay={isDay} />
 
-      {/* 内容层 - 应用全局字体设置 */}
+      {/* 內容層 - 應用全局字體設置 */}
       <div 
         className="relative z-10 flex flex-col min-h-screen"
         style={globalStyles}
@@ -256,7 +256,7 @@ const App: React.FC = () => {
           onAddBookmark={() => { setEditingBookmark(null); setModals(m => ({...m, edit: true})); }}
           config={data?.config}
           onUpdateConfig={updateConfig}
-          groups={allGroups} // 传递分组数据用于头部下拉菜单
+          groups={allGroups} // 傳遞分組數據用於頭部下拉菜單
         />
 
         <main className="flex-1 p-6 md:p-10 pb-0 max-w-[1920px] mx-auto w-full">

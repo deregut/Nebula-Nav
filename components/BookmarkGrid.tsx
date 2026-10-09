@@ -15,7 +15,7 @@ const ChevronRightIcon = () => (
 
 interface Props {
   loading: boolean;
-  dataIds: string[]; // 用于 SortableContext 的 ID 列表
+  dataIds: string[]; // 用於 SortableContext 的 ID 列表
   groupedBookmarks: Record<string, Bookmark[]>;
   sortedGroupKeys: string[];
   collapsedGroups: Set<string>;
@@ -63,18 +63,18 @@ export const BookmarkGrid: React.FC<Props> = ({
   }, [cardSize, cardMode]);
 
   if (loading) {
-      return <div className="text-white text-center mt-20">正在同步数据...</div>;
+      return <div className="text-white text-center mt-20">正在同步數據...</div>;
   }
 
-  // 空状态
+  // 空狀態
   if (Object.keys(groupedBookmarks).length === 0) {
     return (
       <div className="text-center text-gray-400 mt-20">
-        <p className="text-lg">{searchTerm ? '没有找到相关书签。' : '暂无收藏。'}</p>
-        {searchTerm && <p className="text-sm mt-2">按 <span className="font-bold text-white">Enter</span> 键在网络上搜索</p>}
+        <p className="text-lg">{searchTerm ? '沒有找到相關書籤。' : '暫無收藏。'}</p>
+        {searchTerm && <p className="text-sm mt-2">按 <span className="font-bold text-white">Enter</span> 鍵在網絡上搜索</p>}
         {!searchTerm && (
             <div className="mt-6 flex justify-center gap-4">
-                <GlassButton onClick={onImportClick}>导入书签</GlassButton>
+                <GlassButton onClick={onImportClick}>導入書籤</GlassButton>
             </div>
         )}
       </div>
@@ -90,9 +90,9 @@ export const BookmarkGrid: React.FC<Props> = ({
         const shouldShowContent = !!searchTerm || !isCollapsed;
 
         return (
-          // 增加 ID 以便快速跳转 (使用 encodeURIComponent 避免特殊字符问题)
+          // 增加 ID 以便快速跳轉 (使用 encodeURIComponent 避免特殊字符問題)
           <div key={category} id={`group-${encodeURIComponent(category)}`} className="mb-6 animate-fadeIn transition-all scroll-mt-24">
-            {/* 分组标题栏 - 升级为通栏磨砂效果 */}
+            {/* 分組標題欄 - 升級為通欄磨砂效果 */}
             <div 
               className={`
                 group flex items-center justify-between px-4 py-3 mb-4 rounded-xl 
@@ -102,13 +102,13 @@ export const BookmarkGrid: React.FC<Props> = ({
               `}
               onClick={() => onToggleGroup(category)}
               onContextMenu={(e) => { e.preventDefault(); onGroupContextMenu(e, category); }}
-              title="左键点击折叠/展开，右键点击管理"
+              title="左鍵點擊摺疊/展開，右鍵點擊管理"
             >
               <div className="flex items-center gap-3">
                  <div className={`p-1 rounded-full bg-white/5 transition-transform duration-300 ${shouldShowContent ? 'rotate-0' : '-rotate-90'}`}>
                     <ChevronDownIcon />
                  </div>
-                 {/* 应用字体颜色变量 */}
+                 {/* 應用字體顏色變量 */}
                  <h2 
                     className="font-medium text-lg tracking-wide transition-colors"
                     style={{ color: 'var(--app-font-color, #fff)' }}

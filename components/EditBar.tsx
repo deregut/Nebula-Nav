@@ -29,15 +29,15 @@ export const EditBar: React.FC<Props> = ({
       {/* Wrapper to handle centering but allowing content to scroll if wider */}
       <div className="max-w-full overflow-x-auto scrollbar-hide pointer-events-auto rounded-2xl">
         <GlassCard className="flex gap-4 p-2 px-4 shadow-2xl border-white/20 bg-black/60 items-center whitespace-nowrap min-w-max">
-          <span className="text-xs text-purple-300 mr-2 hidden sm:inline">左键拖拽可排序</span>
+          <span className="text-xs text-purple-300 mr-2 hidden sm:inline">左鍵拖拽可排序</span>
           <div className="w-px h-4 bg-white/10 hidden sm:block"></div>
-          <button onClick={onOpenConfig} className="text-sm text-blue-300 hover:text-blue-100 px-2 py-1 flex items-center gap-1 font-medium"><SettingsIcon /> 设置</button>
+          <button onClick={onOpenConfig} className="text-sm text-blue-300 hover:text-blue-100 px-2 py-1 flex items-center gap-1 font-medium"><SettingsIcon /> 設置</button>
           <div className="w-px bg-white/10"></div>
-          <button onClick={onImport} className="text-sm text-gray-300 hover:text-white px-2 py-1">导入</button>
+          <button onClick={onImport} className="text-sm text-gray-300 hover:text-white px-2 py-1">導入</button>
           <div className="w-px bg-white/10"></div>
-          <button onClick={onExport} className="text-sm text-gray-300 hover:text-white px-2 py-1">导出</button>
+          <button onClick={onExport} className="text-sm text-gray-300 hover:text-white px-2 py-1">導出</button>
           <div className="w-px bg-white/10"></div>
-          <button onClick={onBackup} className="text-sm text-purple-300 hover:text-purple-100 px-2 py-1 font-medium">备份</button>
+          <button onClick={onBackup} className="text-sm text-purple-300 hover:text-purple-100 px-2 py-1 font-medium">備份</button>
           <div className="w-px bg-white/10"></div>
           <button onClick={onCheckDuplicates} className="text-sm text-yellow-400 hover:text-yellow-200 px-2 py-1 flex items-center gap-1"><DuplicateIcon /> 查重</button>
           <div className="w-px bg-white/10"></div>

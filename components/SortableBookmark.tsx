@@ -24,7 +24,7 @@ export const SortableBookmark: React.FC<Props> = (props) => {
     isDragging
   } = useSortable({ 
     id: props.bookmark.id,
-    disabled: !props.editMode // 只有编辑模式下可以拖拽
+    disabled: !props.editMode // 只有編輯模式下可以拖拽
   });
 
   const style = {

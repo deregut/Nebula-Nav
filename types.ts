@@ -6,7 +6,7 @@ export interface Bookmark {
   icon?: string;
   category?: string;
   createdAt: number;
-  isPinned?: boolean; // 是否置顶/快捷访问
+  isPinned?: boolean; // 是否置頂/快捷訪問
 }
 
 export interface RedirectRule {
@@ -19,10 +19,10 @@ export type WidgetType = 'none' | 'weather' | 'quote' | 'notes' | 'crypto' | 'ca
 export interface AppConfig {
   siteTitle: string;
   redirects: RedirectRule[];
-  groupOrder?: string[]; // 分组排序列表
-  collapsedGroups?: string[]; // 已折叠的分组名称列表
-  backgroundImage?: string; // 自定义背景图片 URL
-  searchEngineUrl?: string; // 自定义搜索引擎前缀
+  groupOrder?: string[]; // 分組排序列表
+  collapsedGroups?: string[]; // 已摺疊的分組名稱列表
+  backgroundImage?: string; // 自定義背景圖片 URL
+  searchEngineUrl?: string; // 自定義搜索引擎前綴
   
   // View Settings (Synced)
   cardSize?: 'small' | 'medium' | 'large';
@@ -31,22 +31,22 @@ export interface AppConfig {
   bgBlur?: number; // 背景模糊度 px
   
   // New: Background Motion & Caching
-  enableBgMotion?: boolean; // 是否开启背景动态效果 (Ken Burns Effect)
-  cachedWeatherBgUrl?: string; // 缓存的自动天气背景 URL (存入 KV)
+  enableBgMotion?: boolean; // 是否開啟背景動態效果 (Ken Burns Effect)
+  cachedWeatherBgUrl?: string; // 緩存的自動天氣背景 URL (存入 KV)
 
   // Font & Appearance Settings (New)
-  fontScale?: number; // 字体大小缩放 (0.8 - 1.5, 默认为 1)
-  fontColor?: string; // 全局字体颜色 (Hex)
-  textShadowStrength?: number; // 字体阴影强度 (0 - 100)
+  fontScale?: number; // 字體大小縮放 (0.8 - 1.5, 默認為 1)
+  fontColor?: string; // 全局字體顏色 (Hex)
+  textShadowStrength?: number; // 字體陰影強度 (0 - 100)
 
   // Widgets
   leftWidget?: WidgetType;
   rightWidget?: WidgetType;
-  widgetNote?: string; // 便签内容
+  widgetNote?: string; // 便籤內容
   
   // New Feature
-  autoWeatherBg?: boolean; // 是否根据天气自动切换背景
-  customLocation?: string; // 自定义天气位置 (城市名)
+  autoWeatherBg?: boolean; // 是否根據天氣自動切換背景
+  customLocation?: string; // 自定義天氣位置 (城市名)
 }
 
 // Represents the data structure stored in Cloudflare KV

@@ -6,7 +6,7 @@ export const generateNetscapeHTML = (bookmarks: Bookmark[]): string => {
   // Group bookmarks by category
   const groups: Record<string, Bookmark[]> = {};
   bookmarks.forEach(b => {
-    const cat = b.category || '未分类';
+    const cat = b.category || '未分類';
     if (!groups[cat]) groups[cat] = [];
     groups[cat].push(b);
   });

@@ -12,22 +12,22 @@ export const parseBookmarksHTML = (htmlContent: string): Bookmark[] => {
     const url = link.getAttribute('href');
     const title = link.textContent;
     
-    // 兼容 ICON 或 icon 属性，并处理 Base64 字符串
-    // 某些浏览器导出的 Base64 可能包含换行符，需要清理
+    // 兼容 ICON 或 icon 屬性，並處理 Base64 字符串
+    // 某些瀏覽器導出的 Base64 可能包含換行符，需要清理
     let icon = link.getAttribute('icon') || link.getAttribute('ICON');
     if (icon) {
       icon = icon.trim();
     }
     
     // Attempt to find category (parent folder)
-    let category = '导入';
+    let category = '導入';
     const dt = link.parentElement;
     if (dt && dt.tagName === 'DT') {
       const dl = dt.parentElement;
       if (dl && dl.tagName === 'DL') {
         const folderTitle = dl.previousElementSibling;
         if (folderTitle && folderTitle.tagName === 'H3') {
-          category = folderTitle.textContent || '导入';
+          category = folderTitle.textContent || '導入';
         }
       }
     }

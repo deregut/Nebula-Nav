@@ -7,7 +7,7 @@ export const useData = (isAuthenticated: boolean, password: string) => {
   const [data, setData] = useState<KVData | null>(null);
   const [loading, setLoading] = useState(false);
 
-  // Authenticated 时获取数据
+  // Authenticated 時獲取數據
   useEffect(() => {
     if (isAuthenticated) {
       setLoading(true);
@@ -18,7 +18,7 @@ export const useData = (isAuthenticated: boolean, password: string) => {
     }
   }, [isAuthenticated]);
 
-  // 通用保存方法，暴露给 App.tsx 用于拖拽等直接数据更新
+  // 通用保存方法，暴露給 App.tsx 用於拖拽等直接數據更新
   const persist = async (newData: KVData) => {
     setData(newData);
     await StorageService.saveData(newData, password);
@@ -36,9 +36,9 @@ export const useData = (isAuthenticated: boolean, password: string) => {
     } else {
       const newBookmark: Bookmark = {
         id: crypto.randomUUID(),
-        title: partial.title || '新站点',
+        title: partial.title || '新站點',
         url: partial.url || '#',
-        category: partial.category || '未分类',
+        category: partial.category || '未分類',
         icon: partial.icon,
         createdAt: Date.now(),
         isPinned: false
@@ -51,7 +51,7 @@ export const useData = (isAuthenticated: boolean, password: string) => {
 
   const deleteBookmark = async (id: string) => {
     if (!data) return;
-    if (!window.confirm('确定要删除这个收藏吗？')) return;
+    if (!window.confirm('確定要刪除這個收藏嗎？')) return;
     await persist({
       ...data,
       bookmarks: data.bookmarks.filter(b => b.id !== id)
@@ -145,23 +145,23 @@ export const useData = (isAuthenticated: boolean, password: string) => {
     
     const parsed = parseBackupData(content);
     if (!parsed) {
-        alert("无法识别文件格式。请上传 .html 书签文件或 .json 备份文件。");
+        alert("無法識別文件格式。請上傳 .html 書籤文件或 .json 備份文件。");
         return;
     }
 
-    // 全量恢复
+    // 全量恢復
     if ('config' in parsed && 'bookmarks' in parsed) {
         const backup = parsed as KVData;
-        if (window.confirm(`确定要恢复备份吗？这将覆盖当前所有数据。\n包含 ${backup.bookmarks.length} 个书签。`)) {
+        if (window.confirm(`確定要恢復備份嗎？這將覆蓋當前所有數據。\n包含 ${backup.bookmarks.length} 個書籤。`)) {
             await persist(backup);
         }
         return;
     }
 
-    // 仅书签导入
+    // 僅書籤導入
     if (Array.isArray(parsed)) {
         const newBookmarks = parsed as Bookmark[];
-        if (window.confirm(`准备导入 ${newBookmarks.length} 个书签到当前列表？`)) {
+        if (window.confirm(`準備導入 ${newBookmarks.length} 個書籤到當前列表？`)) {
             // Merge logic: append new ones
             await persist({
                 ...data,

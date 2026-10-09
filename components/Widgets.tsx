@@ -13,13 +13,13 @@ const ArrowIcon = ({ deg }: { deg: number }) => (
 
 // --- Weather Widget ---
 const WEATHER_CODES: Record<number, string> = {
-    0: '晴朗', 1: '少云', 2: '多云', 3: '阴天',
-    45: '雾', 48: '冻雾',
+    0: '晴朗', 1: '少雲', 2: '多雲', 3: '陰天',
+    45: '霧', 48: '凍霧',
     51: '毛毛雨', 53: '中雨', 55: '大雨',
     61: '小雨', 63: '中雨', 65: '暴雨',
     71: '小雪', 73: '中雪', 75: '大雪',
-    80: '阵雨', 81: '强阵雨', 82: '暴雨',
-    95: '雷阵雨', 96: '雷阵雨伴冰雹', 99: '重雷阵雨'
+    80: '陣雨', 81: '強陣雨', 82: '暴雨',
+    95: '雷陣雨', 96: '雷陣雨伴冰雹', 99: '重雷陣雨'
 };
 
 interface WeatherWidgetProps {
@@ -27,14 +27,14 @@ interface WeatherWidgetProps {
 }
 
 export const WeatherWidget: React.FC<WeatherWidgetProps> = ({ customLocation }) => {
-  // 传入 customLocation，如果存在则优先使用
+  // 傳入 customLocation，如果存在則優先使用
   const { weather, locationName, loading } = useWeather(true, customLocation);
 
   if (loading || !weather) return (
       <GlassCard className="flex items-center justify-center px-6 h-32 w-72 !bg-black/20 border-white/5">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 border-2 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
-            <span className="text-gray-400 text-sm">正在获取天气...</span>
+            <span className="text-gray-400 text-sm">正在獲取天氣...</span>
           </div>
       </GlassCard>
   );
@@ -53,10 +53,10 @@ export const WeatherWidget: React.FC<WeatherWidgetProps> = ({ customLocation }) 
 
   return (
     <GlassCard className="flex items-center justify-between px-6 py-4 h-32 w-72 !bg-black/20 border-white/5 transition-transform hover:scale-105 group relative overflow-hidden">
-        {/* 背景装饰：根据白天黑夜显示不同颜色光晕 */}
+        {/* 背景裝飾：根據白天黑夜顯示不同顏色光暈 */}
         <div className={`absolute -right-6 -top-6 w-24 h-24 rounded-full blur-2xl transition-all ${weather.is_day ? 'bg-orange-500/10 group-hover:bg-orange-500/20' : 'bg-blue-500/10 group-hover:bg-blue-500/20'}`}></div>
 
-        {/* 左侧：温度与图标 */}
+        {/* 左側：溫度與圖標 */}
         <div className="flex flex-col items-start z-10">
              <div className="flex items-center gap-2">
                  <span className="text-4xl filter drop-shadow-md">{getWeatherIcon(weather.weather_code, weather.is_day)}</span>
@@ -71,9 +71,9 @@ export const WeatherWidget: React.FC<WeatherWidgetProps> = ({ customLocation }) 
              </span>
         </div>
 
-        {/* 右侧：详细信息 */}
+        {/* 右側：詳細信息 */}
         <div className="flex flex-col items-end gap-2 text-right z-10">
-             {/* 显示具体的 locationName */}
+             {/* 顯示具體的 locationName */}
              <div className="text-xs font-bold text-white bg-white/10 px-2.5 py-1 rounded-full backdrop-blur-md max-w-[120px] truncate" title={locationName}>
                  {locationName}
              </div>
@@ -101,7 +101,7 @@ export const QuoteWidget: React.FC = () => {
       fetch('https://v1.hitokoto.cn/?c=i&c=k')
         .then(res => res.json())
         .then(data => setQuote({ text: data.hitokoto, author: data.from_who || data.from }))
-        .catch(() => setQuote({ text: '心有猛虎，细嗅蔷薇。', author: 'Sassoon' }));
+        .catch(() => setQuote({ text: '心有猛虎，細嗅薔薇。', author: 'Sassoon' }));
   }, []);
 
   return (
@@ -121,8 +121,8 @@ export const QuoteWidget: React.FC = () => {
 };
 
 // --- Market Widget (TradingView) ---
-// 优化：改回 Mini Symbol Overview，使用 SSE:000001 (上证指数)
-// 使用 dangerouslySetInnerHTML 避免 React DOM 注入脚本时的时序问题
+// 優化：改回 Mini Symbol Overview，使用 SSE:000001 (上證指數)
+// 使用 dangerouslySetInnerHTML 避免 React DOM 注入腳本時的時序問題
 export const MarketWidget: React.FC = memo(() => {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -130,10 +130,10 @@ export const MarketWidget: React.FC = memo(() => {
         if (!containerRef.current) return;
         
         const scriptConfig = {
-            "symbol": "SSE:000001", // 上证指数
+            "symbol": "SSE:000001", // 上證指數
             "width": "100%",
             "height": "100%",
-            "locale": "zh_CN",
+            "locale": "zh_TW",
             "dateRange": "12M",
             "colorTheme": "dark",
             "isTransparent": true,
@@ -161,7 +161,7 @@ export const MarketWidget: React.FC = memo(() => {
              <div className="tradingview-widget-container w-full h-full p-2" ref={containerRef}>
                  {/* Widget injected here */}
              </div>
-             {/* 遮挡底部版权条 */}
+             {/* 遮擋底部版權條 */}
              <div className="absolute bottom-0 left-0 right-0 h-5 bg-gradient-to-t from-[#0f172a] to-transparent pointer-events-none"></div>
         </GlassCard>
     );
@@ -195,7 +195,7 @@ export const NoteWidget: React.FC<NoteProps> = ({ content, onUpdate }) => {
                 className="w-full h-full bg-transparent border-none resize-none text-sm text-gray-200 focus:outline-none custom-scrollbar leading-relaxed"
                 value={localValue}
                 onChange={(e) => setLocalValue(e.target.value)}
-                placeholder="在此输入便签..."
+                placeholder="在此輸入便籤..."
                 spellCheck={false}
              />
         </GlassCard>

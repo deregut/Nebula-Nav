@@ -42,7 +42,7 @@ const SortableItem = ({ id }: { id: string }) => {
     zIndex: isDragging ? 50 : 'auto',
     opacity: isDragging ? 0.5 : 1,
     position: 'relative' as 'relative',
-    touchAction: 'manipulation' as const, // 关键：允许滚动，但让 dnd-kit 捕获长按
+    touchAction: 'manipulation' as const, // 關鍵：允許滾動，但讓 dnd-kit 捕獲長按
   };
 
   return (
@@ -64,16 +64,16 @@ const SortableItem = ({ id }: { id: string }) => {
 export const GroupManagerModal: React.FC<Props> = ({ isOpen, onClose, groups, onReorder }) => {
   const [items, setItems] = useState<string[]>([]);
   
-  // 配置传感器：桌面端立即拖拽，移动端需长按 250ms
+  // 配置傳感器：桌面端立即拖拽，移動端需長按 250ms
   const sensors = useSensors(
     useSensor(MouseSensor, {
       activationConstraint: {
-        distance: 8, // 防止点击时的微小抖动被误判为拖拽
+        distance: 8, // 防止點擊時的微小抖動被誤判為拖拽
       },
     }),
     useSensor(TouchSensor, {
       activationConstraint: {
-        delay: 250, // 核心修复：延迟 250ms 激活，区分“滚动”和“拖拽”
+        delay: 250, // 核心修復：延遲 250ms 激活，區分“滾動”和“拖拽”
         tolerance: 5,
       },
     }),
@@ -111,9 +111,9 @@ export const GroupManagerModal: React.FC<Props> = ({ isOpen, onClose, groups, on
       <div className="w-full max-w-md bg-[#1e293b] border border-white/10 rounded-2xl p-6 shadow-2xl flex flex-col max-h-[80vh]">
         <h2 className="text-xl font-semibold text-white mb-2 flex items-center gap-2">
            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
-           分组排序
+           分組排序
         </h2>
-        <p className="text-sm text-gray-400 mb-6">移动端请长按拖拽，桌面端可直接拖拽。</p>
+        <p className="text-sm text-gray-400 mb-6">移動端請長按拖拽，桌面端可直接拖拽。</p>
         
         <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar min-h-[200px]">
             <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>

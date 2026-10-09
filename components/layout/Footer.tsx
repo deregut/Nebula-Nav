@@ -15,7 +15,7 @@ interface Props {
 }
 
 export const Footer: React.FC<Props> = ({ count, sizeStr, percent }) => {
-  // 根据占用率决定颜色
+  // 根據佔用率決定顏色
   let barColor = 'bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.5)]';
   let textColor = 'text-cyan-300';
   
@@ -28,40 +28,40 @@ export const Footer: React.FC<Props> = ({ count, sizeStr, percent }) => {
       textColor = 'text-red-300';
   }
 
-  // 这里的字体样式强制固定，不继承全局的 fontScale，防止布局错乱，但保证足够清晰
+  // 這裡的字體樣式強制固定，不繼承全局的 fontScale，防止佈局錯亂，但保證足夠清晰
   const staticTextStyle = {
-      textShadow: '0 2px 4px rgba(0,0,0,0.8)', // 强制深色阴影
-      fontSize: '1rem', // 强制大小，不受全局缩放影响
+      textShadow: '0 2px 4px rgba(0,0,0,0.8)', // 強制深色陰影
+      fontSize: '1rem', // 強制大小，不受全局縮放影響
   };
 
   return (
     <footer className="w-full py-6 flex flex-col items-center justify-center gap-4 mt-auto border-t border-white/10 bg-[#0f172a]/80 backdrop-blur-xl relative z-20">
       
       <div className="flex items-center gap-8 md:gap-12 px-4">
-        {/* 书签统计 */}
+        {/* 書籤統計 */}
         <div className="flex flex-col items-center gap-1" style={staticTextStyle}>
-            <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">书签数量</span>
+            <span className="text-xs text-gray-400 uppercase tracking-widest font-bold">書籤數量</span>
             <span className="text-xl text-white font-mono leading-none font-bold">{count}</span>
         </div>
 
-        {/* 分隔线 */}
+        {/* 分隔線 */}
         <div className="w-px h-10 bg-white/15"></div>
 
-        {/* 存储能量条 */}
+        {/* 存儲能量條 */}
         <div className="flex flex-col gap-2 w-48 md:w-56" style={staticTextStyle}>
              <div className="flex justify-between items-end text-xs">
-                <span className="text-gray-400 uppercase tracking-widest font-bold">KV 存储</span>
+                <span className="text-gray-400 uppercase tracking-widest font-bold">KV 存儲</span>
                 <span className={`${textColor} font-mono tracking-wide font-bold`}>{sizeStr}</span>
              </div>
              
-             {/* 槽体 */}
+             {/* 槽體 */}
              <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden border border-white/10 relative">
-                {/* 能量条主体 */}
+                {/* 能量條主體 */}
                 <div 
                     className={`h-full rounded-full transition-all duration-700 ease-out ${barColor}`}
                     style={{ width: `${Math.max(percent, 2)}%` }}
                 ></div>
-                {/* 扫描光效 */}
+                {/* 掃描光效 */}
                 <div 
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-1/2 -skew-x-12 translate-x-[-200%]"
                     style={{ animation: 'shimmer 2s infinite linear' }}

@@ -10,7 +10,7 @@ body {
   color: #e2e8f0;
   overflow-x: hidden;
   margin: 0;
-  /* 移除硬编码的 text-shadow，现在由 JS 动态注入 */
+  /* 移除硬編碼的 text-shadow，現在由 JS 動態注入 */
 }
 
 /* Animated Background (Gradient) */

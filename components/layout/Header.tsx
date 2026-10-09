@@ -15,7 +15,7 @@ const ListIcon = () => (
 const EyeIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
 );
-// 恢复为标准齿轮图标
+// 恢復為標準齒輪圖標
 const SettingsIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
 );
@@ -40,7 +40,7 @@ interface Props {
   onOpenGroupModal: () => void;
   onOpenViewModal: () => void;
   onOpenQuickNav: () => void;
-  onOpenFontSettings: () => void; // 新增回调
+  onOpenFontSettings: () => void; // 新增回調
   editMode: boolean;
   setEditMode: (mode: boolean) => void;
   onAddBookmark: () => void;
@@ -72,7 +72,7 @@ export const Header: React.FC<Props> = ({
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isQuickNavHovered, setIsQuickNavHovered] = useState(false);
 
-  // 初始化时，如果是移动端，自动滚动到中间的“时间”模块
+  // 初始化時，如果是移動端，自動滾動到中間的“時間”模塊
   useEffect(() => {
     if (scrollContainerRef.current && timeRef.current) {
         if (window.innerWidth < 1280) {
@@ -84,21 +84,21 @@ export const Header: React.FC<Props> = ({
     }
   }, []);
 
-  // 搜索展开时自动聚焦
+  // 搜索展開時自動聚焦
   useEffect(() => {
     if (isSearchOpen && searchInputRef.current) {
       searchInputRef.current.focus();
     }
   }, [isSearchOpen, searchInputRef]);
 
-  // 处理搜索框失焦
+  // 處理搜索框失焦
   const handleSearchBlur = () => {
     if (!searchTerm) {
       setIsSearchOpen(false);
     }
   };
 
-  // 下拉菜单跳转逻辑
+  // 下拉菜單跳轉邏輯
   const handleScrollToGroup = (group: string) => {
     setIsQuickNavHovered(false);
     const el = document.getElementById(`group-${encodeURIComponent(group)}`);
@@ -133,10 +133,10 @@ export const Header: React.FC<Props> = ({
                 className="min-w-full xl:min-w-0 text-center select-none z-10 flex-shrink-0 snap-center flex flex-col items-center justify-center"
             >
                 <div className="text-6xl md:text-8xl font-light text-white tracking-tighter tabular-nums drop-shadow-2xl">
-                {currentTime.toLocaleTimeString('zh-CN', { hour12: false, hour: '2-digit', minute: '2-digit' })}
+                {currentTime.toLocaleTimeString('zh-TW', { hour12: false, hour: '2-digit', minute: '2-digit' })}
                 </div>
                 <div className="text-lg md:text-xl text-purple-200/80 mt-2 font-light tracking-wide">
-                {currentTime.toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' })}
+                {currentTime.toLocaleDateString('zh-TW', { month: 'long', day: 'numeric', weekday: 'long' })}
                 </div>
                 {/* Mobile Hint dots */}
                 <div className="flex xl:hidden gap-1.5 mt-4 opacity-30">
@@ -159,7 +159,7 @@ export const Header: React.FC<Props> = ({
       <div className="sticky top-0 z-40 bg-black/20 backdrop-blur-md border-b border-white/5 transition-all duration-300">
         <div className="px-4 md:px-10 py-3 max-w-[1920px] mx-auto flex flex-col xl:flex-row justify-between items-center gap-4">
           
-          {/* 左侧：固定书签 */}
+          {/* 左側：固定書籤 */}
           <div className="flex items-center gap-3 overflow-x-auto max-w-full xl:max-w-[40%] custom-scrollbar pb-1 xl:pb-0 order-2 xl:order-1 h-12">
             {pinnedBookmarks.length > 0 && (
               <SortableContext items={pinnedBookmarks.map(b => `pinned-${b.id}`)} strategy={horizontalListSortingStrategy}>
@@ -171,14 +171,14 @@ export const Header: React.FC<Props> = ({
             )}
           </div>
 
-          {/* 右侧：功能按钮组 */}
+          {/* 右側：功能按鈕組 */}
           <div className="flex flex-wrap justify-center gap-3 w-full xl:w-auto order-1 xl:order-2 items-center">
             
-            {/* 搜索框 (可展开) */}
+            {/* 搜索框 (可展開) */}
             <div className={`relative transition-all duration-300 ease-out overflow-hidden ${showSearchInput ? 'w-full md:w-64 opacity-100' : 'w-0 opacity-0'}`}>
               <GlassInput 
                 ref={searchInputRef} 
-                placeholder="搜索书签或网络..." 
+                placeholder="搜索書籤或網絡..." 
                 value={searchTerm} 
                 onChange={(e) => setSearchTerm(e.target.value)} 
                 onKeyDown={(e) => {
@@ -192,9 +192,9 @@ export const Header: React.FC<Props> = ({
               </div>
             </div>
 
-            {/* 按钮组 */}
+            {/* 按鈕組 */}
             <div className="flex gap-2">
-              {/* 搜索按钮 (未展开时显示) */}
+              {/* 搜索按鈕 (未展開時顯示) */}
               {!showSearchInput && (
                 <GlassButton 
                     variant="ghost" 
@@ -206,7 +206,7 @@ export const Header: React.FC<Props> = ({
                 </GlassButton>
               )}
 
-              {/* 快速跳转 (指南针) */}
+              {/* 快速跳轉 (指南針) */}
               <div 
                 className="relative"
                 onMouseEnter={() => setIsQuickNavHovered(true)}
@@ -215,7 +215,7 @@ export const Header: React.FC<Props> = ({
                   <GlassButton 
                       variant="ghost" 
                       onClick={onOpenQuickNav} 
-                      title="快速跳转" 
+                      title="快速跳轉" 
                       className="!bg-black/20 hover:!bg-black/40 !px-3 h-10 w-10 flex items-center justify-center rounded-xl"
                   >
                       <CompassIcon />
@@ -234,29 +234,29 @@ export const Header: React.FC<Props> = ({
                                 </button>
                             ))
                         ) : (
-                            <div className="px-4 py-3 text-sm text-gray-500 text-center">暂无分组</div>
+                            <div className="px-4 py-3 text-sm text-gray-500 text-center">暫無分組</div>
                         )}
                       </div>
                   </div>
               </div>
 
-              {/* 编辑模式开关 (常驻) */}
+              {/* 編輯模式開關 (常駐) */}
               <GlassButton 
                   variant="ghost" 
                   onClick={() => setEditMode(!editMode)} 
                   className={`!px-3 h-10 w-10 flex items-center justify-center rounded-xl ${editMode ? 'bg-purple-600/40 text-purple-100 border border-purple-500/50' : '!bg-black/20 hover:!bg-black/40'}`} 
-                  title="编辑模式"
+                  title="編輯模式"
               >
                   <SettingsIcon />
               </GlassButton>
 
-              {/* 以下按钮仅在编辑模式下显示 */}
+              {/* 以下按鈕僅在編輯模式下顯示 */}
               {editMode && (
                 <div className="flex gap-2 animate-fadeIn">
                     <GlassButton 
                         variant="ghost" 
                         onClick={onOpenGroupModal} 
-                        title="分组排序" 
+                        title="分組排序" 
                         className="!bg-black/20 hover:!bg-black/40 !px-3 h-10 w-10 flex items-center justify-center rounded-xl"
                     >
                         <ListIcon />
@@ -265,7 +265,7 @@ export const Header: React.FC<Props> = ({
                     <GlassButton 
                         variant="ghost" 
                         onClick={onOpenViewModal} 
-                        title="视图设置" 
+                        title="視圖設置" 
                         className="!bg-black/20 hover:!bg-black/40 !px-3 h-10 w-10 flex items-center justify-center rounded-xl"
                     >
                         <EyeIcon />
@@ -274,7 +274,7 @@ export const Header: React.FC<Props> = ({
                     <GlassButton 
                         variant="ghost" 
                         onClick={onOpenFontSettings} 
-                        title="字体设置" 
+                        title="字體設置" 
                         className="!bg-black/20 hover:!bg-black/40 !px-3 h-10 w-10 flex items-center justify-center rounded-xl"
                     >
                         <FontIcon />
@@ -283,7 +283,7 @@ export const Header: React.FC<Props> = ({
                     <GlassButton 
                         variant="ghost"
                         onClick={onAddBookmark} 
-                        title="添加书签"
+                        title="添加書籤"
                         className="!bg-black/20 hover:!bg-black/40 !px-3 h-10 w-10 flex items-center justify-center rounded-xl"
                     >
                         <PlusIcon />

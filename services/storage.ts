@@ -4,26 +4,26 @@ import { Bookmark, KVData } from '../types';
 const USE_CLOUD_API = true; 
 const STORAGE_KEY = 'nebula_nav_data';
 
-// 获取环境变量中的标题，默认为 '星云导航'
+// 獲取環境變量中的標題，默認為 '星雲導航'
 // Safely access import.meta.env
-export const DEFAULT_SITE_TITLE = (import.meta as any).env?.VITE_SITE_TITLE || '星云导航';
+export const DEFAULT_SITE_TITLE = (import.meta as any).env?.VITE_SITE_TITLE || '星雲導航';
 
 // Initial Data for Demo (Fallback)
 const DEFAULT_DATA: KVData = {
   config: {
     siteTitle: DEFAULT_SITE_TITLE,
     redirects: [],
-    groupOrder: ['开发', '媒体', '常用', '未分类'],
+    groupOrder: ['開發', '媒體', '常用', '未分類'],
     collapsedGroups: [],
     cardSize: 'medium',
     cardMode: 'standard',
     leftWidget: 'weather',
     rightWidget: 'quote',
-    widgetNote: '在这里记下你的待办事项...'
+    widgetNote: '在這裡記下你的待辦事項...'
   },
   bookmarks: [
-    { id: '1', title: 'GitHub', url: 'https://github.com', category: '开发', createdAt: Date.now(), isPinned: true },
-    { id: '2', title: 'YouTube', url: 'https://youtube.com', category: '媒体', createdAt: Date.now() },
+    { id: '1', title: 'GitHub', url: 'https://github.com', category: '開發', createdAt: Date.now(), isPinned: true },
+    { id: '2', title: 'YouTube', url: 'https://youtube.com', category: '媒體', createdAt: Date.now() },
   ]
 };
 
@@ -54,7 +54,7 @@ export const StorageService = {
         
         const data = await res.json();
         
-        // 关键修复：数据完整性检查
+        // 關鍵修復：數據完整性檢查
         if (data && (!data.config || !data.bookmarks)) {
            return {
              ...DEFAULT_DATA,
@@ -75,12 +75,12 @@ export const StorageService = {
            };
         }
         
-        // 确保 config 对象存在
+        // 確保 config 對象存在
         if (!data.config) {
             data.config = { ...DEFAULT_DATA.config };
         }
 
-        // 默认值填充
+        // 默認值填充
         data.config.siteTitle = DEFAULT_SITE_TITLE;
         if (!data.config.groupOrder) data.config.groupOrder = [];
         if (!data.config.collapsedGroups) data.config.collapsedGroups = [];

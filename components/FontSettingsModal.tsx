@@ -46,7 +46,7 @@ export const FontSettingsModal: React.FC<Props> = ({
       <div className="w-full max-w-sm bg-[#1e293b]/90 border border-white/10 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
         <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" /></svg>
-            全局字体设置
+            全局字體設置
         </h2>
         
         <div className="space-y-6">
@@ -54,7 +54,7 @@ export const FontSettingsModal: React.FC<Props> = ({
           {/* Font Scale */}
           <div>
             <div className="flex justify-between items-end mb-2">
-                <label className="text-xs text-gray-400 uppercase tracking-wider">整体大小缩放</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wider">整體大小縮放</label>
                 <span className="text-sm font-medium text-purple-300">
                     {Math.round(scale * 100)}%
                 </span>
@@ -72,7 +72,7 @@ export const FontSettingsModal: React.FC<Props> = ({
 
           {/* Text Color */}
           <div>
-            <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wider">主要文字颜色</label>
+            <label className="block text-xs text-gray-400 mb-2 uppercase tracking-wider">主要文字顏色</label>
             <div className="flex gap-2">
                 <input 
                     type="color" 
@@ -92,7 +92,7 @@ export const FontSettingsModal: React.FC<Props> = ({
           {/* Text Shadow Strength */}
           <div>
             <div className="flex justify-between items-end mb-2">
-                <label className="text-xs text-gray-400 uppercase tracking-wider">文字阴影深度</label>
+                <label className="text-xs text-gray-400 uppercase tracking-wider">文字陰影深度</label>
                 <span className="text-sm font-medium text-purple-300">
                     {shadowStrength}
                 </span>
@@ -112,7 +112,7 @@ export const FontSettingsModal: React.FC<Props> = ({
                     fontSize: `${16 * scale}px`,
                     textShadow: `0 ${1 + (shadowStrength/50)}px ${2 + (shadowStrength/20)}px rgba(0,0,0, ${0.3 + (shadowStrength/150)})`
                 }}>
-                    预览 Text Effect
+                    預覽 Text Effect
                 </span>
             </div>
           </div>
@@ -120,7 +120,7 @@ export const FontSettingsModal: React.FC<Props> = ({
         </div>
 
         <div className="flex justify-between mt-8 pt-4 border-t border-white/5">
-            <GlassButton variant="ghost" onClick={handleReset} className="text-xs !px-3">恢复默认</GlassButton>
+            <GlassButton variant="ghost" onClick={handleReset} className="text-xs !px-3">恢復默認</GlassButton>
             <div className="flex gap-3">
                 <GlassButton variant="ghost" onClick={onClose}>取消</GlassButton>
                 <GlassButton onClick={handleSave}>保存</GlassButton>

@@ -20,7 +20,7 @@ export const ScrollToTop: React.FC = () => {
         <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
             className="w-12 h-12 rounded-full bg-purple-600/90 hover:bg-purple-500 text-white shadow-xl backdrop-blur-md flex items-center justify-center transition-all hover:-translate-y-1 hover:shadow-2xl" 
-            title="回到顶部"
+            title="回到頂部"
         >
             <TriangleUpIcon />
         </button>

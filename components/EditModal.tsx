@@ -7,7 +7,7 @@ interface Props {
   onClose: () => void;
   onSave: (b: Partial<Bookmark>) => void;
   initialData?: Bookmark | null;
-  groups: string[]; // 接收全部分组列表
+  groups: string[]; // 接收全部分組列表
 }
 
 export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialData, groups }) => {
@@ -23,7 +23,7 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
         icon: initialData.icon || ''
       });
     } else if (isOpen) {
-      // 默认选中第一个分组（如果有）或者 '未分类'
+      // 默認選中第一個分組（如果有）或者 '未分類'
       setFormData({ title: '', url: '', category: '', icon: '' });
     }
   }, [isOpen, initialData]);
@@ -34,7 +34,7 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
     if (!file) return;
 
     if (file.size > 5 * 1024 * 1024) {
-      alert("图片过大，请选择小于 5MB 的图片");
+      alert("圖片過大，請選擇小於 5MB 的圖片");
       return;
     }
 
@@ -81,21 +81,21 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
       <div className="w-full max-w-md bg-[#1e293b] border border-white/10 rounded-2xl p-6 shadow-2xl relative animate-fadeIn">
         <h2 className="text-xl font-semibold text-white mb-6">
-          {initialData ? '编辑收藏' : '新建收藏'}
+          {initialData ? '編輯收藏' : '新建收藏'}
         </h2>
         
         <div className="space-y-4">
           <div>
-            <label className="block text-xs text-gray-400 mb-1 ml-1">标题</label>
+            <label className="block text-xs text-gray-400 mb-1 ml-1">標題</label>
             <GlassInput 
               value={formData.title} 
               onChange={e => setFormData({...formData, title: e.target.value})}
-              placeholder="网站名称"
+              placeholder="網站名稱"
               autoFocus
             />
           </div>
           <div>
-            <label className="block text-xs text-gray-400 mb-1 ml-1">链接地址</label>
+            <label className="block text-xs text-gray-400 mb-1 ml-1">鏈接地址</label>
             <GlassInput 
               value={formData.url} 
               onChange={e => setFormData({...formData, url: e.target.value})}
@@ -104,14 +104,14 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
           </div>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs text-gray-400 mb-1 ml-1">分类</label>
+              <label className="block text-xs text-gray-400 mb-1 ml-1">分類</label>
               <GlassInput 
                 value={formData.category} 
                 onChange={e => setFormData({...formData, category: e.target.value})}
-                placeholder="选择或输入新分类"
+                placeholder="選擇或輸入新分類"
                 list="category-options" 
               />
-              {/* 这里使用 datalist 实现输入框+下拉选择 */}
+              {/* 這裡使用 datalist 實現輸入框+下拉選擇 */}
               <datalist id="category-options">
                   {groups.map(g => (
                       <option key={g} value={g} />
@@ -119,7 +119,7 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
               </datalist>
             </div>
              <div>
-              <label className="block text-xs text-gray-400 mb-1 ml-1">图标</label>
+              <label className="block text-xs text-gray-400 mb-1 ml-1">圖標</label>
               <div className="flex gap-2">
                  {/* Hidden File Input */}
                 <input 
@@ -135,7 +135,7 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
                     <div 
                         className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center border border-white/20 overflow-hidden cursor-pointer relative group"
                         onClick={() => fileInputRef.current?.click()}
-                        title="点击更换图片"
+                        title="點擊更換圖片"
                     >
                         <img src={formData.icon} alt="Icon" className="w-full h-full object-contain" />
                         <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
@@ -158,9 +158,9 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
                         variant="ghost" 
                         className="px-2 py-1 h-auto text-xs"
                         onClick={() => fileInputRef.current?.click()}
-                        title="上传本地图片"
+                        title="上傳本地圖片"
                     >
-                        上传
+                        上傳
                     </GlassButton>
                     <GlassButton 
                         type="button"
@@ -175,9 +175,9 @@ export const EditModal: React.FC<Props> = ({ isOpen, onClose, onSave, initialDat
                             setFormData({...formData, icon: `https://icons.duckduckgo.com/ip3/${domain}.ico`});
                             } catch(e) { /* ignore */ }
                         }}
-                        title="自动获取"
+                        title="自動獲取"
                     >
-                        自动
+                        自動
                     </GlassButton>
                 </div>
               </div>

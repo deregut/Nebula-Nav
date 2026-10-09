@@ -22,7 +22,7 @@ export const useAuth = () => {
       sessionStorage.setItem('nebula_session', pwd);
       setPassword(pwd);
       setIsAuthenticated(true);
-      setLoading(false); // 关键修复：登录成功后必须关闭 loading 状态
+      setLoading(false); // 關鍵修復：登錄成功後必須關閉 loading 狀態
       return true;
     }
     setLoading(false);
@@ -31,7 +31,7 @@ export const useAuth = () => {
 
   const logout = () => {
     sessionStorage.removeItem('nebula_session');
-    // 刷新页面以清除状态
+    // 刷新頁面以清除狀態
     window.location.reload();
   };
 

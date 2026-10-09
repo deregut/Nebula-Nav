@@ -41,7 +41,7 @@ export const useDragAndDrop = (
             const overItem = data.bookmarks[newIndex];
             updatedBookmarks = arrayMove(data.bookmarks, oldIndex, newIndex);
             
-            // 如果拖到了不同分类的元素上，更新分类
+            // 如果拖到了不同分類的元素上，更新分類
             if (activeItem.category !== overItem.category) {
                 updatedBookmarks = updatedBookmarks.map(b => 
                     b.id === activeItem.id ? { ...b, category: overItem.category } : b

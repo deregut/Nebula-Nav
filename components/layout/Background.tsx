@@ -38,18 +38,18 @@ export const Background: React.FC<Props> = ({ config, weatherCode, isDay }) => {
   // Background Logic
   const bgStyle = useMemo(() => {
       // 1. Custom User Background (Highest Priority if manually set and NOT auto weather)
-      // 如果用户没有开启自动天气，且设置了自定义背景，则使用自定义背景
+      // 如果用戶沒有開啟自動天氣，且設置了自定義背景，則使用自定義背景
       if (!config?.autoWeatherBg && config?.backgroundImage) {
           return { backgroundImage: `url(${config.backgroundImage})` };
       }
 
       // 2. Auto Weather Background
       if (config?.autoWeatherBg) {
-          // 优先使用 KV 中缓存的 URL，避免闪烁
+          // 優先使用 KV 中緩存的 URL，避免閃爍
           if (config.cachedWeatherBgUrl) {
               return { backgroundImage: `url(${config.cachedWeatherBgUrl})` };
           }
-          // 如果没有缓存，但有实时天气代码，则计算 (这种情况通常只发生在第一次开启功能时)
+          // 如果沒有緩存，但有實時天氣代碼，則計算 (這種情況通常只發生在第一次開啟功能時)
           if (weatherCode !== null) {
               const weatherBg = getWeatherBgUrl(weatherCode, isDay);
               if (weatherBg) {
@@ -67,7 +67,7 @@ export const Background: React.FC<Props> = ({ config, weatherCode, isDay }) => {
       return {};
   }, [config?.backgroundImage, config?.autoWeatherBg, config?.cachedWeatherBgUrl, weatherCode, isDay]);
   
-  // 背景遮罩样式 (Opacity & Blur)
+  // 背景遮罩樣式 (Opacity & Blur)
   const bgOverlayStyle = useMemo(() => {
       const opacity = config?.bgOverlayOpacity !== undefined ? config.bgOverlayOpacity / 100 : 0.4;
       const blur = config?.bgBlur !== undefined ? config.bgBlur : 0;
@@ -79,13 +79,13 @@ export const Background: React.FC<Props> = ({ config, weatherCode, isDay }) => {
       };
   }, [config?.bgOverlayOpacity, config?.bgBlur]);
 
-  // 检查是否显示自定义/天气背景
+  // 檢查是否顯示自定義/天氣背景
   const hasCustomBg = !!bgStyle.backgroundImage;
-  const enableMotion = config?.enableBgMotion !== false; // 默认为 true (或者 undefined时为 true)
+  const enableMotion = config?.enableBgMotion !== false; // 默認為 true (或者 undefined時為 true)
 
   return (
     <>
-      {/* 1. 独立背景层 (Fixed Position) */}
+      {/* 1. 獨立背景層 (Fixed Position) */}
       <div className="fixed inset-0 z-0 overflow-hidden bg-[#0f172a]">
           <div 
             className={`absolute inset-0 transition-all duration-1000 ease-in-out
@@ -100,7 +100,7 @@ export const Background: React.FC<Props> = ({ config, weatherCode, isDay }) => {
           />
       </div>
       
-      {/* 2. 独立遮罩层 (Fixed Position) */}
+      {/* 2. 獨立遮罩層 (Fixed Position) */}
       {hasCustomBg && (
           <div 
             className="fixed inset-0 z-0 pointer-events-none transition-all duration-300" 

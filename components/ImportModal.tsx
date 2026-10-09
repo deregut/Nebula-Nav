@@ -25,18 +25,18 @@ export const ImportModal: React.FC<Props> = ({ isOpen, onClose, onImport }) => {
         onClose();
       }
     };
-    reader.onerror = () => setError("读取文件失败");
+    reader.onerror = () => setError("讀取文件失敗");
     reader.readAsText(file);
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fadeIn">
       <div className="w-full max-w-md bg-[#1e293b] border border-white/10 rounded-2xl p-6 shadow-2xl">
-        <h2 className="text-xl font-semibold text-white mb-2">导入数据</h2>
+        <h2 className="text-xl font-semibold text-white mb-2">導入數據</h2>
         <p className="text-sm text-gray-400 mb-6">
-          支持导入: <br/>
-          1. 浏览器导出的 HTML 书签文件。<br/>
-          2. Nebula Nav 导出的 JSON 备份文件。
+          支持導入: <br/>
+          1. 瀏覽器導出的 HTML 書籤文件。<br/>
+          2. Nebula Nav 導出的 JSON 備份文件。
         </p>
         
         <input 
@@ -51,7 +51,7 @@ export const ImportModal: React.FC<Props> = ({ isOpen, onClose, onImport }) => {
           onClick={() => fileInputRef.current?.click()}
           className="border-2 border-dashed border-white/20 rounded-xl p-8 text-center cursor-pointer hover:bg-white/5 transition-colors mb-4"
         >
-          <p className="text-gray-300">点击选择文件 (.html / .json)</p>
+          <p className="text-gray-300">點擊選擇文件 (.html / .json)</p>
         </div>
 
         {error && <p className="text-red-400 text-sm mb-4">{error}</p>}

@@ -1,59 +1,59 @@
 
-# 🌌 Nebula Nav (星云导航)
+# 🌌 Nebula Nav (星雲導航)
 
-Nebula Nav 是一个基于 **Cloudflare Pages** 和 **Cloudflare KV** 构建的现代化、高颜值个人导航页。它采用 React + Vite 开发，拥有磨砂玻璃（Glassmorphism）的 UI 风格，支持全端适配、服务端数据存储、以及强大的书签管理功能。
+Nebula Nav 是一個基於 **Cloudflare Pages** 和 **Cloudflare KV** 構建的現代化、高顏值個人導航頁。它採用 React + Vite 開發，擁有磨砂玻璃（Glassmorphism）的 UI 風格，支持全端適配、服務端數據存儲、以及強大的書籤管理功能。
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![React](https://img.shields.io/badge/React-19-61dafb.svg)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-Pages%20%26%20KV-orange.svg)
 
-## ✨ 核心亮点
+## ✨ 核心亮點
 
-### 🎨 极致 UI 与个性化
-*   **磨砂玻璃设计**: 全局动态渐变背景 + 半透明卡片，视觉效果现代、通透。
-*   **视图自定义**: 
-    *   支持切换 **标准卡片** (图标+文字) 或 **仅图标** 模式。
-    *   支持调节图标大小 (小/中/大)。
-    *   **智能天气动态壁纸**: 
-        *   支持根据实时天气（晴、雨、雪、夜等）自动切换精美壁纸。
-        *   **动态视效**: 支持 Ken Burns 效果（缓慢缩放平移），让静态壁纸栩栩如生。
-        *   **极致性能**: 天气壁纸 URL 自动缓存至 KV，拒绝加载闪烁。
-    *   支持 **自定义背景壁纸** (手动输入图片 URL)。
-    *   **全局字体设置**: 支持自定义字体缩放比例、文字颜色及阴影强度。
-*   **沉浸式体验**: 首页集成大屏时钟与日期显示，支持动态背景遮罩。
+### 🎨 極致 UI 與個性化
+*   **磨砂玻璃設計**: 全局動態漸變背景 + 半透明卡片，視覺效果現代、通透。
+*   **視圖自定義**: 
+    *   支持切換 **標準卡片** (圖標+文字) 或 **僅圖標** 模式。
+    *   支持調節圖標大小 (小/中/大)。
+    *   **智能天氣動態壁紙**: 
+        *   支持根據實時天氣（晴、雨、雪、夜等）自動切換精美壁紙。
+        *   **動態視效**: 支持 Ken Burns 效果（緩慢縮放平移），讓靜態壁紙栩栩如生。
+        *   **極致性能**: 天氣壁紙 URL 自動緩存至 KV，拒絕加載閃爍。
+    *   支持 **自定義背景壁紙** (手動輸入圖片 URL)。
+    *   **全局字體設置**: 支持自定義字體縮放比例、文字顏色及陰影強度。
+*   **沉浸式體驗**: 首頁集成大屏時鐘與日期顯示，支持動態背景遮罩。
 
-### 🚀 强大的交互体验
+### 🚀 強大的交互體驗
 *   **全功能拖拽**:
-    *   **书签排序**: 自由拖拽书签改变位置。
-    *   **跨分组拖拽**: 将书签拖入其他分组自动归类。
-    *   **分组排序**: 支持拖拽调整分组（分类）的上下顺序。
-    *   **快捷栏排序**: 顶部置顶图标也支持横向拖拽。
-*   **移动端优化**: 完美适配手机/平板，支持 **长按呼出菜单** (带震动反馈)，解决移动端右键难题。
+    *   **書籤排序**: 自由拖拽書籤改變位置。
+    *   **跨分組拖拽**: 將書籤拖入其他分組自動歸類。
+    *   **分組排序**: 支持拖拽調整分組（分類）的上下順序。
+    *   **快捷欄排序**: 頂部置頂圖標也支持橫向拖拽。
+*   **移動端優化**: 完美適配手機/平板，支持 **長按呼出菜單** (帶震動反饋)，解決移動端右鍵難題。
 
-### 🛠️ 深度书签管理
-*   **书签治理**:
-    *   **查重工具**: 内置强大的查重功能，支持按 **URL**、**标题** 或 **主域名** 查找并批量清理重复书签。
-    *   **分组管理**: 支持新建、重命名分组，以及点击分组标题进行折叠/展开。
-*   **搜索增强**: 集成聚合搜索栏，支持自定义搜索引擎（Google/Bing/Baidu/DDG），支持直接打开搜索结果。
-*   **数据导入/导出**:
-    *   支持导入 Chrome/Edge 导出的 HTML 书签文件。
-    *   支持导入/导出项目专属的 JSON 全量备份（包含配置信息）。
-    *   添加书签时自动提取网站 Favicon 图标，支持图片压缩上传。
+### 🛠️ 深度書籤管理
+*   **書籤治理**:
+    *   **查重工具**: 內置強大的查重功能，支持按 **URL**、**標題** 或 **主域名** 查找並批量清理重複書籤。
+    *   **分組管理**: 支持新建、重命名分組，以及點擊分組標題進行摺疊/展開。
+*   **搜索增強**: 集成聚合搜索欄，支持自定義搜索引擎（Google/Bing/Baidu/DDG），支持直接打開搜索結果。
+*   **數據導入/導出**:
+    *   支持導入 Chrome/Edge 導出的 HTML 書籤文件。
+    *   支持導入/導出項目專屬的 JSON 全量備份（包含配置信息）。
+    *   添加書籤時自動提取網站 Favicon 圖標，支持圖片壓縮上傳。
 
-### 🧩 智能小组件 (Widgets)
-*   **天气组件**:
-    *   **免配置定位**: 集成 IP 定位功能，无需浏览器授权即可自动获取当前城市天气。
-    *   **位置优化**: 支持显示精确的城市名称（通过反向地理编码）。
-    *   **本地化**: 完美支持中文天气描述（如“晴”、“多云”），显示实时温度、湿度、风速。
-*   **市场组件 (TradingView)**:
-    *   **专业图表**: 引入 TradingView Mini Symbol Overview，默认展示 **上证指数** (SSE:000001) 走势。
-    *   **美观**: 支持暗色模式，动态交互。
+### 🧩 智能小組件 (Widgets)
+*   **天氣組件**:
+    *   **免配置定位**: 集成 IP 定位功能，無需瀏覽器授權即可自動獲取當前城市天氣。
+    *   **位置優化**: 支持顯示精確的城市名稱（通過反向地理編碼）。
+    *   **本地化**: 完美支持中文天氣描述（如“晴”、“多雲”），顯示實時溫度、溼度、風速。
+*   **市場組件 (TradingView)**:
+    *   **專業圖表**: 引入 TradingView Mini Symbol Overview，默認展示 **上證指數** (SSE:000001) 走勢。
+    *   **美觀**: 支持暗色模式，動態交互。
 
-### 🔐 安全与架构
-*   **Serverless 架构**: 前端托管于 Cloudflare Pages，数据存储于 Cloudflare KV，全球低延迟。
-*   **隐私保护**: 访问、编辑、管理均需通过密码验证 (KV 鉴权)。
+### 🔐 安全與架構
+*   **Serverless 架構**: 前端託管於 Cloudflare Pages，數據存儲於 Cloudflare KV，全球低延遲。
+*   **隱私保護**: 訪問、編輯、管理均需通過密碼驗證 (KV 鑑權)。
 
-## 🛠️ 技术栈
+## 🛠️ 技術棧
 
 *   **Frontend**: React 19, TypeScript, Tailwind CSS, Vite
 *   **Interaction**: @dnd-kit (Core, Sortable, Utilities)
@@ -63,81 +63,81 @@ Nebula Nav 是一个基于 **Cloudflare Pages** 和 **Cloudflare KV** 构建的�
 ## 🔄 最近更新 (Changelog)
 
 ### v1.2.0 - Visual & Experience Upgrade
-*   **动态背景系统**: 
-    *   新增 **Ken Burns** 动态效果开关，使天气壁纸具备电影级的缓慢移动视效。
-    *   新增 **壁纸 KV 缓存** 机制，首次加载后记录 URL，再次访问时秒开无闪烁。
-*   **字体个性化**:
-    *   新增全局 **字体设置** 面板，可调节字体大小缩放、全局文字颜色及文字阴影强度。
-    *   解决了书签文字颜色与 Tailwind 样式冲突的问题。
-*   **UI 优化**:
-    *   底部统计栏汉化为 "书签数量" 和 "KV 存储"。
-    *   恢复编辑模式入口为标准的齿轮图标。
-    *   优化了 Footer 的字体显示效果。
-    *   新增底部 **Telegram** 联系方式链接，方便反馈问题。
+*   **動態背景系統**: 
+    *   新增 **Ken Burns** 動態效果開關，使天氣壁紙具備電影級的緩慢移動視效。
+    *   新增 **壁紙 KV 緩存** 機制，首次加載後記錄 URL，再次訪問時秒開無閃爍。
+*   **字體個性化**:
+    *   新增全局 **字體設置** 面板，可調節字體大小縮放、全局文字顏色及文字陰影強度。
+    *   解決了書籤文字顏色與 Tailwind 樣式衝突的問題。
+*   **UI 優化**:
+    *   底部統計欄漢化為 "書籤數量" 和 "KV 存儲"。
+    *   恢復編輯模式入口為標準的齒輪圖標。
+    *   優化了 Footer 的字體顯示效果。
+    *   新增底部 **Telegram** 聯繫方式鏈接，方便反饋問題。
 
 ### v1.1.0 - Weather & Market Optimization
-*   **智能天气背景**: 新增根据实时天气自动切换背景图的功能。
-*   **位置显示修正**: 天气组件现在能正确显示所在的城市名称，而非笼统的“当前位置”。
-*   **市场组件修复**: 修复了 TradingView 组件加载失败的问题，改用稳定性更高的上证指数代码 (`SSE:000001`)。
+*   **智能天氣背景**: 新增根據實時天氣自動切換背景圖的功能。
+*   **位置顯示修正**: 天氣組件現在能正確顯示所在的城市名稱，而非籠統的“當前位置”。
+*   **市場組件修復**: 修復了 TradingView 組件加載失敗的問題，改用穩定性更高的上證指數代碼 (`SSE:000001`)。
 
 ### v1.0.0 - Widget & UI Upgrade
-*   **重构天气组件**:
-    *   引入 `ipapi.co` 实现 IP 自动定位。
-    *   增加 WMO 天气代码到中文的映射。
-    *   优化 UI 布局。
-*   **移动端优化**:
-    *   顶部时间/小组件区域在移动端支持横向滑动 (Snap Scroll)。
+*   **重構天氣組件**:
+    *   引入 `ipapi.co` 實現 IP 自動定位。
+    *   增加 WMO 天氣代碼到中文的映射。
+    *   優化 UI 佈局。
+*   **移動端優化**:
+    *   頂部時間/小組件區域在移動端支持橫向滑動 (Snap Scroll)。
 
 ## 🚀 部署指南
 
-本项目专为 Cloudflare Pages 设计，开箱即用。
+本項目專為 Cloudflare Pages 設計，開箱即用。
 
-### 1. 前置准备
-*   一个 Cloudflare 账号。
-*   GitHub 账号。
+### 1. 前置準備
+*   一個 Cloudflare 賬號。
+*   GitHub 賬號。
 
 ### 2. 部署到 Cloudflare Pages
 
-1.  **Fork** 本仓库到你的 GitHub。
-2.  登录 Cloudflare Dashboard，进入 **Pages**。
-3.  点击 "Connect to Git"，选择你的仓库。
-4.  **构建配置**:
+1.  **Fork** 本倉庫到你的 GitHub。
+2.  登錄 Cloudflare Dashboard，進入 **Pages**。
+3.  點擊 "Connect to Git"，選擇你的倉庫。
+4.  **構建配置**:
     *   **Framework preset**: Vite
     *   **Build command**: `npm run build`
     *   **Output directory**: `dist`
-5.  点击 "Save and Deploy"。
+5.  點擊 "Save and Deploy"。
 
-### 3. 必要的配置 (关键步骤)
+### 3. 必要的配置 (關鍵步驟)
 
-部署完成后，你必须配置 KV 和环境变量才能正常使用。
+部署完成後，你必須配置 KV 和環境變量才能正常使用。
 
-#### A. 创建 KV 命名空间
-在 Cloudflare Dashboard -> Workers & Pages -> KV 中，创建一个新的 Namespace，命名为 `nebula_kv` (或者任意你喜欢的名字)。
+#### A. 創建 KV 命名空間
+在 Cloudflare Dashboard -> Workers & Pages -> KV 中，創建一個新的 Namespace，命名為 `nebula_kv` (或者任意你喜歡的名字)。
 
-#### B. 绑定 KV 到 Pages
-1.  进入你的 Pages 项目 -> **Settings** -> **Functions**。
+#### B. 綁定 KV 到 Pages
+1.  進入你的 Pages 項目 -> **Settings** -> **Functions**。
 2.  找到 **KV Namespace Bindings**。
-3.  添加绑定:
-    *   **Variable name**: `NAV_KV` (⚠️ 必须完全一致，代码中读取此变量)
-    *   **KV Namespace**: 选择你刚才创建的 `nebula_kv`。
+3.  添加綁定:
+    *   **Variable name**: `NAV_KV` (⚠️ 必須完全一致，代碼中讀取此變量)
+    *   **KV Namespace**: 選擇你剛才創建的 `nebula_kv`。
 
-#### C. 设置环境变量
-1.  进入你的 Pages 项目 -> **Settings** -> **Environment variables**。
-2.  添加以下变量 (Production 和 Preview 都要加):
-    *   `AUTH_PASSWORD`: 设置你的访问/管理密码 (例如 `your_secure_password`)。
-    *   `VITE_SITE_TITLE`: (可选) 自定义网站标题，默认为 "星云导航"。
-    *   `REDIRECTS`: (可选) 路由重定向配置，见下文。
+#### C. 設置環境變量
+1.  進入你的 Pages 項目 -> **Settings** -> **Environment variables**。
+2.  添加以下變量 (Production 和 Preview 都要加):
+    *   `AUTH_PASSWORD`: 設置你的訪問/管理密碼 (例如 `your_secure_password`)。
+    *   `VITE_SITE_TITLE`: (可選) 自定義網站標題，默認為 "星雲導航"。
+    *   `REDIRECTS`: (可選) 路由重定向配置，見下文。
 
 #### D. 重新部署
-配置修改后，需要**重新部署**一次（Retry deployment）才能生效。
+配置修改後，需要**重新部署**一次（Retry deployment）才能生效。
 
-## ⚙️ 进阶设置
+## ⚙️ 進階設置
 
 ### 路由重定向
-项目位于 `functions/_middleware.ts` 中的中间件支持简易的短链接跳转功能。
-你可以在环境变量 `REDIRECTS` 中配置 JSON 映射表。
+項目位於 `functions/_middleware.ts` 中的中間件支持簡易的短鏈接跳轉功能。
+你可以在環境變量 `REDIRECTS` 中配置 JSON 映射表。
 
-**配置示例 (环境变量值):**
+**配置示例 (環境變量值):**
 ```json
 {
   "emby": "https://emby.yourdomain.com",
@@ -146,19 +146,19 @@ Nebula Nav 是一个基于 **Cloudflare Pages** 和 **Cloudflare KV** 构建的�
 }
 ```
 
-**支持两种跳转模式：**
+**支持兩種跳轉模式：**
 
-1.  **路径跳转 (推荐)**: 
+1.  **路徑跳轉 (推薦)**: 
     *   直接支持 `*.pages.dev` 域名。
-    *   访问 `https://your-nav.pages.dev/emby` -> 自动跳转至 `https://emby.yourdomain.com`。
+    *   訪問 `https://your-nav.pages.dev/emby` -> 自動跳轉至 `https://emby.yourdomain.com`。
 
-2.  **子域名跳转 (高级)**:
-    *   仅在使用 **自定义域名** 时生效 (需在 DNS 配置泛解析或对应 CNAME)。
-    *   访问 `https://emby.your-custom-domain.com` -> 自动跳转至 `https://emby.yourdomain.com`。
+2.  **子域名跳轉 (高級)**:
+    *   僅在使用 **自定義域名** 時生效 (需在 DNS 配置泛解析或對應 CNAME)。
+    *   訪問 `https://emby.your-custom-domain.com` -> 自動跳轉至 `https://emby.yourdomain.com`。
 
-## 🤝 贡献
+## 🤝 貢獻
 
-欢迎提交 Issue 或 Pull Request！
+歡迎提交 Issue 或 Pull Request！
 
 ## 📄 License
 
